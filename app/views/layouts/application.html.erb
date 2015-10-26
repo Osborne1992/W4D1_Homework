@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Potato</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <br>
+  <center>
+    <header>Teh Potato Site</header>
+    <nav>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Potato Facts", about_path %></li>
+        <li><%= link_to "Growing Potatoes", from_path %></li>
+        <li><%= link_to "Potato Products", products_path %></li>
+      </ul>
+    </nav>
+    <%= form_tag("/search", method: "get") do %>
+      <%= label_tag(:q, "Search:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+  </center>
+  <br>
+  <div class='main'>
+    <%= yield %>
+  </div>
+</body>
+</html>
